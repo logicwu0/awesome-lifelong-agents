@@ -15,7 +15,7 @@
 ## 关于本清单
 
 关注 Agent 如何在任务与时间之间保留、复用和更新能力，不是开发 Agent 的入门教程。
-初版收录 11 篇论文（含综述、基准和明确标记的相关方法），资料核查日期：2026-10-18。
+当前收录 19 篇论文（含综述、基准和明确标记的相关方法），资料核查日期：2026-10-18。
 这是人工维护的精选起点，不宣称全面覆盖，也没有复现这些论文的实验结果。
 Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录或背书。
 
@@ -28,6 +28,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 - [经验与反思](#experience)
 - [长期记忆](#memory)
 - [技能与适应](#skills)
+- [持续训练与参数适应](#training)
 - [基准与评测](#evaluation)
 - [相关方法与边界](#related)
 - [评测检查清单](#evaluation-checklist)
@@ -41,6 +42,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | 论文 | 年份 | 参数更新 | 保留内容 / 类型 | 要点与边界 |
 | --- | --- | --- | --- | --- |
 | [Lifelong Learning of Large Language Model based Agents: A Roadmap](https://arxiv.org/abs/2501.07278) | 2025 | Survey | Survey | 从感知、记忆和行动梳理终身学习智能体；是研究地图，不是算法实现。 |
+| [Continual Learning of Large Language Models: A Comprehensive Survey](https://arxiv.org/abs/2404.16789) | 2024 | Survey | Model-level learning taxonomy | 区分持续预训练、领域适配与持续微调；是模型层背景综述，并非专门的 Agent 综述。 |
 
 <a id="experience"></a>
 
@@ -51,6 +53,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | [ExpeL: LLM Agents Are Experiential Learners](https://arxiv.org/abs/2308.10144) | 2023 | No | Insights / experiences | 从执行经验中提取可复用知识，用于后续任务，不微调 Agent 的语言模型。 |
 | [ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory](https://arxiv.org/abs/2509.25140) | 2025 | No | Reasoning memory | 从成功和失败经历提炼推理经验，供后续检索使用。 |
 | [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366) | 2023 | No | Reflective text | 利用反馈和情景记忆在多次尝试间改进；重复尝试本身不等于跨任务终身学习。 |
+| [CLIN: A Continually Learning Language Agent for Rapid Task Adaptation and Generalization](https://arxiv.org/abs/2310.10134) | 2023 | No | Causal textual memory | 在尝试后更新因果文本记忆，并测试 ScienceWorld 中跨任务与环境迁移；结论需结合其具体实验设置。 |
 
 <a id="memory"></a>
 
@@ -60,6 +63,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | --- | --- | --- | --- | --- |
 | [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) | 2023 | No | Observations / reflections | 通过观察记忆与反思支持模拟行为；属于相关记忆架构，不是遗忘评测基准。 |
 | [Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory](https://arxiv.org/abs/2504.19413) | 2025 | No | Conversation memories | 提取并管理对话记忆；记忆质量本身不能证明技能的持续学习。 |
+| [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110) | 2025 | No | Linked notes / evolving attributes | 构建并更新相互关联的记忆笔记；动态记忆组织本身不能证明终身技能保持。 |
 
 <a id="skills"></a>
 
@@ -68,6 +72,15 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | 论文 | 年份 | 参数更新 | 保留内容 / 类型 | 要点与边界 |
 | --- | --- | --- | --- | --- |
 | [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | 2023 | No | Executable skill library | 在 Minecraft 中结合自动课程、环境反馈和可复用代码技能库。 |
+| [SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills](https://arxiv.org/abs/2504.07079) | 2025 | No | Reusable web APIs | 通过练习网站交互合成可复用 API；应将迁移与鲁棒性评测同已练习网站上的表现区分。 |
+
+<a id="training"></a>
+
+## 持续训练与参数适应
+
+| 论文 | 年份 | 参数更新 | 保留内容 / 类型 | 要点与边界 |
+| --- | --- | --- | --- | --- |
+| [Learning While Acting: A Skill-Enhanced Test-Time Co-Evolution Framework for Online Lifelong Learning Agents](https://arxiv.org/abs/2606.04815) | 2026 | Yes — RL / online policy updates | Skills / policy parameters | LifeSkill 结合验证器指导的技能学习与在线参数内化；成本应包含验证器和训练，而不只是推理 Token。 |
 
 <a id="evaluation"></a>
 
@@ -77,6 +90,8 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | --- | --- | --- | --- | --- |
 | [LifelongAgentBench: Evaluating LLM Agents as Lifelong Learners](https://arxiv.org/abs/2505.11942) | 2025 | N/A | Evaluation protocol | 用于评估 LLM 智能体终身学习；比较方法前需核对任务序列及允许保留的状态。 |
 | [Evaluating Very Long-Term Conversational Memory of LLM Agents](https://arxiv.org/abs/2402.17753) | 2024 | N/A | Evaluation protocol | 提出 LoCoMo 长期对话记忆评测；可作补充，但不能替代持续任务学习评测。 |
+| [SWE-Bench-CL: Continual Learning for Coding Agents](https://arxiv.org/abs/2507.00014) | 2025 | N/A | Chronological coding benchmark | 按时间顺序组织软件问题，考察经验积累与遗忘；需注意仓库版本及信息泄漏控制。 |
+| [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813) | 2024 | N/A | Long-term chat evaluation | 测试信息提取、多会话及时间推理、知识更新与拒答；对话记忆准确率不能衡量工具技能习得。 |
 
 <a id="related"></a>
 
@@ -86,6 +101,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | --- | --- | --- | --- | --- |
 | [Self-Refine: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651) | 2023 | No | Within-task feedback | 通过自反馈迭代修正答案；作为相关机制收录，不视为跨任务终身学习证据。 |
 | [Learning to Prompt for Continual Learning](https://arxiv.org/abs/2112.08654) | 2021 | Prompts / keys / head | Learned parameters | 视觉持续学习背景：冻结主干并训练软提示等参数，不是 LLM Agent 的文本提示检索。 |
+| [ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs](https://arxiv.org/abs/2307.16789) | 2023 | Yes — supervised fine-tuning | Tool-use model parameters | 包含工具使用数据、训练与评测；离线学习工具并不自动等于持续适应变化的 API。 |
 
 <a id="evaluation-checklist"></a>
 
@@ -108,7 +124,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 ## 贡献与维护
 
 欢迎通过 Issue 或 PR 提交论文和更正；请遵循 [CONTRIBUTING.md](CONTRIBUTING.md).
-暂不承诺固定更新频率；后续重点补充持续参数训练、工具变化适应和安全评测。
+暂不承诺固定更新频率；后续重点补充工具变化适应、安全评测及已核实的官方代码入口。
 
 ## 模板与许可
 
