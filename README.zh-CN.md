@@ -15,7 +15,7 @@
 ## 关于本清单
 
 关注 Agent 如何在任务与时间之间保留、复用和更新能力，不是开发 Agent 的入门教程。
-当前收录 19 篇论文（含综述、基准和明确标记的相关方法），资料核查日期：2026-10-18。
+当前收录 25 篇论文（含综述、基准和明确标记的相关方法），最近一批来源核查：2026-10-24（此前条目核查于 2026-10-18）。
 这是人工维护的精选起点，不宣称全面覆盖，也没有复现这些论文的实验结果。
 Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录或背书。
 
@@ -30,6 +30,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 - [技能与适应](#skills)
 - [持续训练与参数适应](#training)
 - [基准与评测](#evaluation)
+- [安全与能力保持](#safety)
 - [相关方法与边界](#related)
 - [评测检查清单](#evaluation-checklist)
 - [相关资源](#resources)
@@ -64,6 +65,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) | 2023 | No | Observations / reflections | 通过观察记忆与反思支持模拟行为；属于相关记忆架构，不是遗忘评测基准。 |
 | [Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory](https://arxiv.org/abs/2504.19413) | 2025 | No | Conversation memories | 提取并管理对话记忆；记忆质量本身不能证明技能的持续学习。 |
 | [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110) | 2025 | No | Linked notes / evolving attributes | 构建并更新相互关联的记忆笔记；动态记忆组织本身不能证明终身技能保持。 |
+| [Scaling Teams or Scaling Time? Memory Enabled Lifelong Learning in LLM Multi-Agent Systems](https://arxiv.org/abs/2604.03295) | 2026 | Not specified in abstract | Multi-agent experience memory | LLMA-Mem 研究连续任务中的记忆拓扑、团队规模与成本权衡；仅凭摘要不能确认所有组件均无需训练。 |
 
 <a id="skills"></a>
 
@@ -92,6 +94,20 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | [Evaluating Very Long-Term Conversational Memory of LLM Agents](https://arxiv.org/abs/2402.17753) | 2024 | N/A | Evaluation protocol | 提出 LoCoMo 长期对话记忆评测；可作补充，但不能替代持续任务学习评测。 |
 | [SWE-Bench-CL: Continual Learning for Coding Agents](https://arxiv.org/abs/2507.00014) | 2025 | N/A | Chronological coding benchmark | 按时间顺序组织软件问题，考察经验积累与遗忘；需注意仓库版本及信息泄漏控制。 |
 | [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813) | 2024 | N/A | Long-term chat evaluation | 测试信息提取、多会话及时间推理、知识更新与拒答；对话记忆准确率不能衡量工具技能习得。 |
+| [Continual Learning Bench: Evaluating Frontier AI Systems in Real-World Stateful Environments](https://arxiv.org/abs/2606.05661) | 2026 | N/A | Stateful evaluation / gain metric | 在六类领域中评估连续经验收益，用增益指标区分学习与初始能力；比较时应匹配预算及状态保留规则。 |
+| [SkillLearnBench: Benchmarking Continual Learning Methods for Agent Skill Generation on Real-World Tasks](https://arxiv.org/abs/2604.20087) | 2026 | N/A | Skill-learning evaluation | 从技能质量、执行轨迹与任务结果评估 20 个任务；需区分外部反馈与自反馈，不能假设收益适用于所有任务。 |
+
+<a id="safety"></a>
+
+## 安全与能力保持
+
+这些条目关注保留状态的风险和旧能力退化，不是可直接套用的安全保证。
+
+| 论文 | 年份 | 参数更新 | 保留内容 / 类型 | 要点与边界 |
+| --- | --- | --- | --- | --- |
+| [Memory Injection Attacks on LLM Agents via Query-Only Interaction](https://arxiv.org/abs/2503.03704) | 2025 | N/A — security study | Poisoned persistent memory | MINJA 研究仅通过查询交互污染持久记忆的风险，不要求直接修改存储；属于威胁模型研究而非学习算法。旧标题为 A Practical Memory Injection Attack against LLM Agents。 |
+| [Memory Poisoning Attack and Defense on Memory Based LLM-Agents](https://arxiv.org/abs/2601.05504) | 2026 | N/A — security study | Memory trust / sanitization | 在不同记忆与检索条件下研究 EHR 智能体记忆投毒及防御；防御需要阈值校准，不构成通用安全保证。 |
+| [Do Self-Evolving Agents Forget? Capability Degradation and Preservation in Lifelong LLM Agent Adaptation](https://arxiv.org/abs/2605.09315) | 2026 | Varies by evolution channel | Workflows / skills / weights / memory | 研究工作流、技能、模型与记忆四类演化中的能力退化，提出 Capability-Preserving Evolution；应同时跟踪旧能力保持与新任务收益。 |
 
 <a id="related"></a>
 
@@ -124,7 +140,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 ## 贡献与维护
 
 欢迎通过 Issue 或 PR 提交论文和更正；请遵循 [CONTRIBUTING.md](CONTRIBUTING.md).
-暂不承诺固定更新频率；后续重点补充工具变化适应、安全评测及已核实的官方代码入口。
+暂不承诺固定更新频率；后续重点补充工具变化适应及已核实的官方代码入口，并深化全文方法核查。
 
 ## 模板与许可
 

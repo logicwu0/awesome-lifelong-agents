@@ -15,8 +15,8 @@ A curated reading map of lifelong LLM agents: experience, memory, skills, and ev
 ## About
 
 How agents retain, reuse and update capabilities across tasks and time—not a tutorial on building agents.
-Current selection: 19 papers, including surveys, benchmarks and explicitly labeled related methods.
-Sources reviewed: 2026-10-18. This is a manually maintained starting point, not an exhaustive survey.
+Current selection: 25 papers, including surveys, benchmarks and explicitly labeled related methods.
+Latest batch source review: 2026-10-24 (earlier entries reviewed on 2026-10-18). This is a manually maintained starting point, not an exhaustive survey.
 We have not reproduced the reported experiments. The Awesome badge denotes list style, not endorsement or inclusion in the central Awesome directory.
 
 “Parameter updates” describes the method, not provider-side model version changes. No does not mean zero inference cost.
@@ -30,6 +30,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 - [Skills and adaptation](#skills)
 - [Continual training and parameter adaptation](#training)
 - [Benchmarks and evaluation](#evaluation)
+- [Safety and capability preservation](#safety)
 - [Related methods and boundaries](#related)
 - [Evaluation checklist](#evaluation-checklist)
 - [Related resources](#resources)
@@ -64,6 +65,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) | 2023 | No | Observations / reflections | Retrieves observations and synthesized reflections to guide simulated behavior; related memory architecture, not a forgetting benchmark. |
 | [Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory](https://arxiv.org/abs/2504.19413) | 2025 | No | Conversation memories | Extracts and manages conversational memories; memory quality is not by itself proof of continual skill learning. |
 | [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110) | 2025 | No | Linked notes / evolving attributes | Builds and revises linked memory notes; adaptive memory organization is not itself proof of lifelong skill retention. |
+| [Scaling Teams or Scaling Time? Memory Enabled Lifelong Learning in LLM Multi-Agent Systems](https://arxiv.org/abs/2604.03295) | 2026 | Not specified in abstract | Multi-agent experience memory | LLMA-Mem studies memory topologies and team-size/cost trade-offs across sequential tasks; the abstract does not establish whether every component is training-free. |
 
 <a id="skills"></a>
 
@@ -92,6 +94,20 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | [Evaluating Very Long-Term Conversational Memory of LLM Agents](https://arxiv.org/abs/2402.17753) | 2024 | N/A | Evaluation protocol | Introduces LoCoMo for long-term conversational memory evaluation; complementary to, not interchangeable with, lifelong task evaluation. |
 | [SWE-Bench-CL: Continual Learning for Coding Agents](https://arxiv.org/abs/2507.00014) | 2025 | N/A | Chronological coding benchmark | Sequences software issues chronologically to study experience accumulation and forgetting; repository versions and leakage controls matter. |
 | [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813) | 2024 | N/A | Long-term chat evaluation | Tests extraction, multi-session and temporal reasoning, knowledge updates and abstention; chat-memory accuracy does not measure tool-skill acquisition. |
+| [Continual Learning Bench: Evaluating Frontier AI Systems in Real-World Stateful Environments](https://arxiv.org/abs/2606.05661) | 2026 | N/A | Stateful evaluation / gain metric | Evaluates sequential experience across six domains with a gain metric separating learning from initial capability; compare matched budgets and state-retention rules. |
+| [SkillLearnBench: Benchmarking Continual Learning Methods for Agent Skill Generation on Real-World Tasks](https://arxiv.org/abs/2604.20087) | 2026 | N/A | Skill-learning evaluation | Evaluates generated skills, execution trajectories and outcomes on 20 tasks; distinguish external feedback from self-feedback and do not assume gains generalize beyond the task set. |
+
+<a id="safety"></a>
+
+## Safety and capability preservation
+
+These entries cover risks of persistent state and degradation of prior capabilities, not plug-in safety guarantees.
+
+| Paper | Year | Parameter updates | Retained state / type | Why read it / boundary |
+| --- | --- | --- | --- | --- |
+| [Memory Injection Attacks on LLM Agents via Query-Only Interaction](https://arxiv.org/abs/2503.03704) | 2025 | N/A — security study | Poisoned persistent memory | MINJA studies how query interactions can corrupt retained memory without direct store access; threat-model evidence, not a learning algorithm. Earlier title: A Practical Memory Injection Attack against LLM Agents. |
+| [Memory Poisoning Attack and Defense on Memory Based LLM-Agents](https://arxiv.org/abs/2601.05504) | 2026 | N/A — security study | Memory trust / sanitization | Studies memory poisoning and defenses in EHR agents under different memory and retrieval conditions; reported defenses require threshold calibration and are not general safety guarantees. |
+| [Do Self-Evolving Agents Forget? Capability Degradation and Preservation in Lifelong LLM Agent Adaptation](https://arxiv.org/abs/2605.09315) | 2026 | Varies by evolution channel | Workflows / skills / weights / memory | Examines capability erosion across four evolution channels and proposes Capability-Preserving Evolution; track retained capabilities as well as adaptation gains. |
 
 <a id="related"></a>
 
@@ -124,7 +140,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 ## Contributing and maintenance
 
 Suggestions and corrections are welcome via issues and PRs; see [CONTRIBUTING.md](CONTRIBUTING.md).
-No fixed update cadence is promised. Next priorities: adaptation to changing tools, safety evaluation and verified official code links.
+No fixed update cadence is promised. Next priorities: adaptation to changing tools, verified official code links and deeper full-text method checks.
 
 ## Template and license
 
