@@ -15,8 +15,8 @@ A curated reading map of lifelong LLM agents: experience, memory, skills, and ev
 ## About
 
 How agents retain, reuse and update capabilities across tasks and time—not a tutorial on building agents.
-Current selection: 25 papers, including surveys, benchmarks and explicitly labeled related methods.
-Latest batch source review: 2026-10-24 (earlier entries reviewed on 2026-10-18). This is a manually maintained starting point, not an exhaustive survey.
+Current selection: 30 papers, including surveys, benchmarks and explicitly labeled related methods.
+Latest batch source review: 2026-10-25 (earlier entries reviewed on 2026-10-18 and 2026-10-24). This is a manually maintained starting point, not an exhaustive survey.
 We have not reproduced the reported experiments. The Awesome badge denotes list style, not endorsement or inclusion in the central Awesome directory.
 
 “Parameter updates” describes the method, not provider-side model version changes. No does not mean zero inference cost.
@@ -55,6 +55,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | [ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory](https://arxiv.org/abs/2509.25140) | 2025 | No | Reasoning memory | Distills reasoning lessons from successful and failed experiences for later retrieval. |
 | [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366) | 2023 | No | Reflective text | Uses feedback and episodic reflections across trials; repeated attempts alone do not establish lifelong transfer. |
 | [CLIN: A Continually Learning Language Agent for Rapid Task Adaptation and Generalization](https://arxiv.org/abs/2310.10134) | 2023 | No | Causal textual memory | Updates causal memory after trials and tests transfer across ScienceWorld tasks and environments; findings are specific to the reported settings. |
+| [LifeMem: Enabling Lifelong Experience Reuse for LLM Agents](https://arxiv.org/abs/2609.12655) | 2026 | No — memory updates | Workflow clusters / textual skills | Clusters trajectories by workflow and extracts reusable skills for cross-environment retrieval; task order and trajectory-collection cost matter, and gains are not uniform across tasks. |
 
 <a id="memory"></a>
 
@@ -66,6 +67,8 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | [Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory](https://arxiv.org/abs/2504.19413) | 2025 | No | Conversation memories | Extracts and manages conversational memories; memory quality is not by itself proof of continual skill learning. |
 | [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110) | 2025 | No | Linked notes / evolving attributes | Builds and revises linked memory notes; adaptive memory organization is not itself proof of lifelong skill retention. |
 | [Scaling Teams or Scaling Time? Memory Enabled Lifelong Learning in LLM Multi-Agent Systems](https://arxiv.org/abs/2604.03295) | 2026 | Not specified in abstract | Multi-agent experience memory | LLMA-Mem studies memory topologies and team-size/cost trade-offs across sequential tasks; the abstract does not establish whether every component is training-free. |
+| [From RAG to Memory: Non-Parametric Continual Learning for Large Language Models](https://arxiv.org/abs/2502.14802) | 2025 | No — non-parametric memory | Passages / retrieval graph | HippoRAG 2 combines passage integration, graph retrieval and online LLM use; knowledge-retrieval gains are not evidence of continual tool-skill acquisition. |
+| [MemoryBank: Enhancing Large Language Models with Long-Term Memory](https://arxiv.org/abs/2305.10250) | 2023 | Memory updates; chatbot also fine-tuned | Conversation memory / user summaries | Uses retrieval and time-sensitive memory retention; distinguish the memory mechanism from SiliconFriend fine-tuning, and conversation evaluation from lifelong task learning. |
 
 <a id="skills"></a>
 
@@ -75,6 +78,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | --- | --- | --- | --- | --- |
 | [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | 2023 | No | Executable skill library | Combines an automatic curriculum, feedback and a reusable code skill library in Minecraft. |
 | [SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills](https://arxiv.org/abs/2504.07079) | 2025 | No | Reusable web APIs | Practices website interactions to synthesize reusable APIs; evaluate transfer and robustness separately from performance on practiced websites. |
+| [Learning from Research: Toward Lifelong Agent Harness Evolution](https://arxiv.org/abs/2609.40169) | 2026 | No — backbone fixed | Agent harness code | ScholarEvolve uses research literature to guide changes to tool-use, memory and execution software; evaluate search cost and held-out generalization, not only optimized-task scores. |
 
 <a id="training"></a>
 
@@ -83,6 +87,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | Paper | Year | Parameter updates | Retained state / type | Why read it / boundary |
 | --- | --- | --- | --- | --- |
 | [Learning While Acting: A Skill-Enhanced Test-Time Co-Evolution Framework for Online Lifelong Learning Agents](https://arxiv.org/abs/2606.04815) | 2026 | Yes — RL / online policy updates | Skills / policy parameters | LifeSkill couples verifier-guided skill learning with online parameter internalization; account for verifier and training costs, not only inference tokens. |
+| [Towards Practical Tool Usage for Continually Learning LLMs](https://arxiv.org/abs/2404.09339) | 2024 | Yes — continual fine-tuning | Tool-use model parameters / replay data | Studies continual learning with tools using synthetic and aggregated NLP tasks, including replay baselines; this is not a full benchmark of arbitrary real-world API evolution. |
 
 <a id="evaluation"></a>
 
