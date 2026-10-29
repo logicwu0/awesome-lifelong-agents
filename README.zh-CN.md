@@ -15,7 +15,7 @@
 ## 关于本清单
 
 关注 Agent 如何在任务与时间之间保留、复用和更新能力，不是开发 Agent 的入门教程。
-当前收录 30 篇论文（含综述、基准和明确标记的相关方法），最近一批来源核查：2026-10-25（此前条目核查于 2026-10-18、2026-10-24）。
+当前收录 34 篇论文（含综述、基准和明确标记的相关方法），最近一批来源核查：2026-10-29（此前条目核查于 2026-10-18、2026-10-24、2026-10-25）。
 这是人工维护的精选起点，不宣称全面覆盖，也没有复现这些论文的实验结果。
 Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录或背书。
 
@@ -79,6 +79,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | 2023 | No | Executable skill library | 在 Minecraft 中结合自动课程、环境反馈和可复用代码技能库。 |
 | [SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills](https://arxiv.org/abs/2504.07079) | 2025 | No | Reusable web APIs | 通过练习网站交互合成可复用 API；应将迁移与鲁棒性评测同已练习网站上的表现区分。 |
 | [Learning from Research: Toward Lifelong Agent Harness Evolution](https://arxiv.org/abs/2609.40169) | 2026 | No — backbone fixed | Agent harness code | ScholarEvolve 利用研究文献指导工具调用、记忆与执行代码演化；需评估搜索成本和留出任务泛化，不能只看优化任务分数。 |
+| [Agent Workflow Memory](https://arxiv.org/abs/2409.07429) | 2024 | No — workflow memory updates | Reusable textual workflows | 从行动轨迹抽象出可复用流程，指导后续网页任务；须区分离线归纳与在线积累，并考虑成功判定器的错误。 |
 
 <a id="training"></a>
 
@@ -88,6 +89,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | --- | --- | --- | --- | --- |
 | [Learning While Acting: A Skill-Enhanced Test-Time Co-Evolution Framework for Online Lifelong Learning Agents](https://arxiv.org/abs/2606.04815) | 2026 | Yes — RL / online policy updates | Skills / policy parameters | LifeSkill 结合验证器指导的技能学习与在线参数内化；成本应包含验证器和训练，而不只是推理 Token。 |
 | [Towards Practical Tool Usage for Continually Learning LLMs](https://arxiv.org/abs/2404.09339) | 2024 | Yes — continual fine-tuning | Tool-use model parameters / replay data | 通过合成任务和组合 NLP 任务研究工具模型持续学习，包含经验回放基线；并非任意真实 API 演化的完整基准。 |
+| [Harness-Model Collaboration for Long-Horizon Continual Learning](https://arxiv.org/abs/2610.34724) | 2026 | Yes — LoRA / behavioral cloning | Experience cards / adapter / replay trajectories | HaMo 将可检索策略与经验条件训练、回放结合；成本需包含专家轨迹和参数适应，迁移结论应限定于已评测的网页任务设置。 |
 
 <a id="evaluation"></a>
 
@@ -101,6 +103,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813) | 2024 | N/A | Long-term chat evaluation | 测试信息提取、多会话及时间推理、知识更新与拒答；对话记忆准确率不能衡量工具技能习得。 |
 | [Continual Learning Bench: Evaluating Frontier AI Systems in Real-World Stateful Environments](https://arxiv.org/abs/2606.05661) | 2026 | N/A | Stateful evaluation / gain metric | 在六类领域中评估连续经验收益，用增益指标区分学习与初始能力；比较时应匹配预算及状态保留规则。 |
 | [SkillLearnBench: Benchmarking Continual Learning Methods for Agent Skill Generation on Real-World Tasks](https://arxiv.org/abs/2604.20087) | 2026 | N/A | Skill-learning evaluation | 从技能质量、执行轨迹与任务结果评估 20 个任务；需区分外部反馈与自反馈，不能假设收益适用于所有任务。 |
+| [Continual Learning Exam: Benchmarking Long-Horizon RSI and Experiential Learning in LLM Agents](https://arxiv.org/abs/2610.33956) | 2026 | N/A — evaluated models fixed | Five-level task ladders / persistent harness state | CLE 在连续职业任务中评估外部状态积累；须区分跨任务复用与反馈辅助重试，并考虑通关解锁机制及自动评分的影响。 |
 
 <a id="safety"></a>
 
@@ -113,6 +116,7 @@ Awesome 徽章表示采用这一清单风格，不代表被官方总目录收录
 | [Memory Injection Attacks on LLM Agents via Query-Only Interaction](https://arxiv.org/abs/2503.03704) | 2025 | N/A — security study | Poisoned persistent memory | MINJA 研究仅通过查询交互污染持久记忆的风险，不要求直接修改存储；属于威胁模型研究而非学习算法。旧标题为 A Practical Memory Injection Attack against LLM Agents。 |
 | [Memory Poisoning Attack and Defense on Memory Based LLM-Agents](https://arxiv.org/abs/2601.05504) | 2026 | N/A — security study | Memory trust / sanitization | 在不同记忆与检索条件下研究 EHR 智能体记忆投毒及防御；防御需要阈值校准，不构成通用安全保证。 |
 | [Do Self-Evolving Agents Forget? Capability Degradation and Preservation in Lifelong LLM Agent Adaptation](https://arxiv.org/abs/2605.09315) | 2026 | Varies by evolution channel | Workflows / skills / weights / memory | 研究工作流、技能、模型与记忆四类演化中的能力退化，提出 Capability-Preserving Evolution；应同时跟踪旧能力保持与新任务收益。 |
+| [Auditing Self-Evolution in Financial Agents: Capability Gains, Security Drift, and Execution-Interface Mismatch](https://arxiv.org/abs/2608.17684) | 2026 | N/A — security audit | Evolved skills / workflows / memories | 在模拟银行环境审计任务效用、注入暴露和未授权状态修改；结论依赖威胁模型及执行器兼容性，不能只看总成功率。 |
 
 <a id="related"></a>
 

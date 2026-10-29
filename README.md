@@ -15,8 +15,8 @@ A curated reading map of lifelong LLM agents: experience, memory, skills, and ev
 ## About
 
 How agents retain, reuse and update capabilities across tasks and time—not a tutorial on building agents.
-Current selection: 30 papers, including surveys, benchmarks and explicitly labeled related methods.
-Latest batch source review: 2026-10-25 (earlier entries reviewed on 2026-10-18 and 2026-10-24). This is a manually maintained starting point, not an exhaustive survey.
+Current selection: 34 papers, including surveys, benchmarks and explicitly labeled related methods.
+Latest batch source review: 2026-10-29 (earlier entries reviewed on 2026-10-18, 2026-10-24 and 2026-10-25). This is a manually maintained starting point, not an exhaustive survey.
 We have not reproduced the reported experiments. The Awesome badge denotes list style, not endorsement or inclusion in the central Awesome directory.
 
 “Parameter updates” describes the method, not provider-side model version changes. No does not mean zero inference cost.
@@ -79,6 +79,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | 2023 | No | Executable skill library | Combines an automatic curriculum, feedback and a reusable code skill library in Minecraft. |
 | [SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills](https://arxiv.org/abs/2504.07079) | 2025 | No | Reusable web APIs | Practices website interactions to synthesize reusable APIs; evaluate transfer and robustness separately from performance on practiced websites. |
 | [Learning from Research: Toward Lifelong Agent Harness Evolution](https://arxiv.org/abs/2609.40169) | 2026 | No — backbone fixed | Agent harness code | ScholarEvolve uses research literature to guide changes to tool-use, memory and execution software; evaluate search cost and held-out generalization, not only optimized-task scores. |
+| [Agent Workflow Memory](https://arxiv.org/abs/2409.07429) | 2024 | No — workflow memory updates | Reusable textual workflows | Abstracts action trajectories into routines for later web tasks; distinguish offline induction from online accumulation and account for errors in the success evaluator. |
 
 <a id="training"></a>
 
@@ -88,6 +89,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | --- | --- | --- | --- | --- |
 | [Learning While Acting: A Skill-Enhanced Test-Time Co-Evolution Framework for Online Lifelong Learning Agents](https://arxiv.org/abs/2606.04815) | 2026 | Yes — RL / online policy updates | Skills / policy parameters | LifeSkill couples verifier-guided skill learning with online parameter internalization; account for verifier and training costs, not only inference tokens. |
 | [Towards Practical Tool Usage for Continually Learning LLMs](https://arxiv.org/abs/2404.09339) | 2024 | Yes — continual fine-tuning | Tool-use model parameters / replay data | Studies continual learning with tools using synthetic and aggregated NLP tasks, including replay baselines; this is not a full benchmark of arbitrary real-world API evolution. |
+| [Harness-Model Collaboration for Long-Horizon Continual Learning](https://arxiv.org/abs/2610.34724) | 2026 | Yes — LoRA / behavioral cloning | Experience cards / adapter / replay trajectories | HaMo combines retrievable strategies with experience-conditioned training and replay; count expert-trajectory and adaptation costs, and interpret transfer within the evaluated web-task settings. |
 
 <a id="evaluation"></a>
 
@@ -101,6 +103,7 @@ Years are first arXiv submission years, not conference years. Check each paper f
 | [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813) | 2024 | N/A | Long-term chat evaluation | Tests extraction, multi-session and temporal reasoning, knowledge updates and abstention; chat-memory accuracy does not measure tool-skill acquisition. |
 | [Continual Learning Bench: Evaluating Frontier AI Systems in Real-World Stateful Environments](https://arxiv.org/abs/2606.05661) | 2026 | N/A | Stateful evaluation / gain metric | Evaluates sequential experience across six domains with a gain metric separating learning from initial capability; compare matched budgets and state-retention rules. |
 | [SkillLearnBench: Benchmarking Continual Learning Methods for Agent Skill Generation on Real-World Tasks](https://arxiv.org/abs/2604.20087) | 2026 | N/A | Skill-learning evaluation | Evaluates generated skills, execution trajectories and outcomes on 20 tasks; distinguish external feedback from self-feedback and do not assume gains generalize beyond the task set. |
+| [Continual Learning Exam: Benchmarking Long-Horizon RSI and Experiential Learning in LLM Agents](https://arxiv.org/abs/2610.33956) | 2026 | N/A — evaluated models fixed | Five-level task ladders / persistent harness state | CLE evaluates sequential professional tasks with retained external state; distinguish cross-task reuse from feedback-assisted revision, and account for gated progression and automated grading. |
 
 <a id="safety"></a>
 
@@ -113,6 +116,7 @@ These entries cover risks of persistent state and degradation of prior capabilit
 | [Memory Injection Attacks on LLM Agents via Query-Only Interaction](https://arxiv.org/abs/2503.03704) | 2025 | N/A — security study | Poisoned persistent memory | MINJA studies how query interactions can corrupt retained memory without direct store access; threat-model evidence, not a learning algorithm. Earlier title: A Practical Memory Injection Attack against LLM Agents. |
 | [Memory Poisoning Attack and Defense on Memory Based LLM-Agents](https://arxiv.org/abs/2601.05504) | 2026 | N/A — security study | Memory trust / sanitization | Studies memory poisoning and defenses in EHR agents under different memory and retrieval conditions; reported defenses require threshold calibration and are not general safety guarantees. |
 | [Do Self-Evolving Agents Forget? Capability Degradation and Preservation in Lifelong LLM Agent Adaptation](https://arxiv.org/abs/2605.09315) | 2026 | Varies by evolution channel | Workflows / skills / weights / memory | Examines capability erosion across four evolution channels and proposes Capability-Preserving Evolution; track retained capabilities as well as adaptation gains. |
+| [Auditing Self-Evolution in Financial Agents: Capability Gains, Security Drift, and Execution-Interface Mismatch](https://arxiv.org/abs/2608.17684) | 2026 | N/A — security audit | Evolved skills / workflows / memories | Audits utility, injection exposure and unauthorized state changes in simulated banking; results depend on the threat model and executor compatibility, not just aggregate task success. |
 
 <a id="related"></a>
 
